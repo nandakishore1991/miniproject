@@ -9,7 +9,7 @@ pipeline {
         }
         stage('docker build') {
             steps {
-                sh 'sudo docker build  -t  kishore9691/sonar:v1  . '
+                sh 'sudo docker build  -t  kishore9691/sonar1:v1  . '
             }
         }
         stage('docker images') {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('docker run') {
             steps {
-                sh 'sudo docker run -d --name sonar1  -p 8081:80 kishore9691/sonar:v1'
+                sh 'sudo docker run -d --name sonar1  -p 8081:80 kishore9691/sonar1:v1'
             }
         }
         stage('docker login') {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('docker push') {
             steps {
-                sh 'sudo docker push kishore9691/sonar:v1'
+                sh 'sudo docker push kishore9691/sonar1:v1'
             }
         }
         stage('print success') {
